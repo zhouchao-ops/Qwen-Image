@@ -102,49 +102,15 @@ Together, these features make Qwen-Image not just a tool for generating pretty p
 
 ### Advanced Usage
 
-#### Prompt Enhance & Diffrent Resolutions
+#### Prompt Enhance
 For better prompt optimization and multi-language support:
 
 ```python
-from diffusers import DiffusionPipeline
+
 from tools.prompt_utils import rewrite
-import torch
-
-# Initialize the pipeline
-pipe = DiffusionPipeline.from_pretrained("Qwen/Qwen-Image", torch_dtype=torch.bfloat16)
-pipe = pipe.to("cuda")
-
-# Generate with different aspect ratios
-aspect_ratios = {
-    "1:1": (1328, 1328),
-    "16:9": (1664, 928),
-    "9:16": (928, 1664),
-    "4:3": (1472, 1140),
-    "3:4": (1140, 1472)
-}
-
-prompt = "一只可爱的小猫坐在花园里"  # Chinese prompt
 prompt = rewrite(prompt)
 
-width, height = aspect_ratios["16:9"]
-
-image = pipe(
-    prompt=prompt,
-    width=width,
-    height=height,
-    num_inference_steps=50,
-    true_cfg_scale=4.0,
-    generator=torch.Generator(device="cuda").manual_seed(42)
-).images[0]
-
-image.save("example.png")
 ```
-#### quantize for low gpu memory hardware
-
-#### acceleration condtion cache
-
-
-
 
 ### ModelScope
 
@@ -163,7 +129,8 @@ model_dir = snapshot_download('Qwen/Qwen-Image')
 pipe = DiffusionPipeline.from_pretrained(model_dir)
 pipe = pipe.to("cuda")
 
-image = pipe("Beautiful sunset over the ocean").images[0]
+prompt = '''A coffee shop entrance features a chalkboard sign reading "Qwen Coffee 😊 $2 per cup," with a neon light beside it displaying "通义千问". Next to it hangs a poster showing a beautiful Chinese woman, and beneath the poster is written "π≈3.1415926-53589793-23846264-33832795-02384197". Ultra HD, 4K, cinematic composition'''
+image = pipe(prompt).images[0]
 image.save("sunset.png")
 ```
 
