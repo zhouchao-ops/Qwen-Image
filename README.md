@@ -125,10 +125,7 @@ Qwen-Image supports multiple deployment frameworks for production use:
 
 For high-throughput deployment, use our multi-GPU API server:
 
-```python
-# Start the API server
-python api/qwen_image_api_multigpu.py
-```
+
 
 This will start a Gradio-based web interface with:
 - Multi-GPU parallel processing
@@ -143,6 +140,11 @@ export TASK_QUEUE_SIZE=100        # Task queue size
 export TASK_TIMEOUT=300           # Task timeout in seconds
 ```
 
+```bash
+# Start the gradio demo server, api key for prompt enhance
+cd src
+DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxxx python examples/demo.py 
+```
 
 <!-- ## Build with Qwen-Image
 
