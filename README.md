@@ -17,7 +17,7 @@ We are thrilled to release **Qwen-Image**, an image generation foundation model 
 ![](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/bench.png#center)
 
 ## News
-- 2025.08.04: We released [Qwen-Image Tech Report]().
+- 2025.08.04: We released the [Technical Report](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/Qwen_Image.pdf) of Qwen-Image!
 - 2025.08.04: We released Qwen-Image weights! Check at [huggingface](https://huggingface.co/Qwen/Qwen-Image) and [Modelscope](https://modelscope.cn/models/Qwen/Qwen-Image)!
 - 2025.08.04: We released Qwen-Image! Check our [blog](https://qwenlm.github.io/blog/qwen-image) for more details!
 
@@ -219,6 +219,7 @@ If you'd like to get in touch with our research team, we’d love to hear from y
 If you have questions about this repository, feedback to share, or want to contribute directly, we welcome your issues and pull requests on GitHub. Your contributions help make Qwen-Image better for everyone. 
 
 If you’re passionate about fundamental research, we’re hiring full-time employees (FTEs) and research interns. Don’t wait — reach out to us at fulai.hr@alibaba-inc.com
+
 
 
 
