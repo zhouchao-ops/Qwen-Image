@@ -108,15 +108,16 @@ Together, these features make Qwen-Image not just a tool for generating pretty p
 ### Advanced Usage
 
 #### Prompt Enhance
-For better prompt optimization and multi-language support:
+For enhanced prompt optimization and multi-language support, we recommend using our official Prompt Enhancement Tool powered by Qwen-Plus .
 
+You can integrate it directly into your code:
 ```python
 from tools.prompt_utils import rewrite
 prompt = rewrite(prompt)
 
 ```
 
-or you can directly run:
+Alternatively, run the example script from the command line:
 
 ```bash
 cd src
