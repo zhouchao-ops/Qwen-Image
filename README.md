@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-    <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/merge.jpg" width="1024"/>
+    <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/merge3.jpg" width="1024"/>
 <p>
 
 ## Introduction
@@ -218,6 +218,7 @@ If you'd like to get in touch with our research team, we’d love to hear from y
 If you have questions about this repository, feedback to share, or want to contribute directly, we welcome your issues and pull requests on GitHub. Your contributions help make Qwen-Image better for everyone. 
 
 If you’re passionate about fundamental research, we’re hiring full-time employees (FTEs) and research interns. Don’t wait — reach out to us at fulai.hr@alibaba-inc.com
+
 
 
 
