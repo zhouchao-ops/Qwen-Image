@@ -124,15 +124,11 @@ DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx python examples/generate_w_prompt_enha
 
 ## Deploy Qwen-Image
 
-Qwen-Image supports multiple deployment frameworks for production use:
+Qwen-Image supports Multi-GPU API Server for local deployment:
 
-### Multi-GPU API Server
+### Multi-GPU API Server Pipeline & Usage
 
-For high-throughput deployment, use our multi-GPU API server:
-
-
-
-This will start a Gradio-based web interface with:
+The Multi-GPU API Server will start a Gradio-based web interface with:
 - Multi-GPU parallel processing
 - Queue management for high concurrency
 - Automatic prompt optimization
@@ -222,6 +218,7 @@ If you'd like to get in touch with our research team, we’d love to hear from y
 If you have questions about this repository, feedback to share, or want to contribute directly, we welcome your issues and pull requests on GitHub. Your contributions help make Qwen-Image better for everyone. 
 
 If you’re passionate about fundamental research, we’re hiring full-time employees (FTEs) and research interns. Don’t wait — reach out to us at fulai.hr@alibaba-inc.com
+
 
 
 
