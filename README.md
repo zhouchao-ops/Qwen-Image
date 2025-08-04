@@ -106,15 +106,17 @@ Together, these features make Qwen-Image not just a tool for generating pretty p
 For better prompt optimization and multi-language support:
 
 ```python
-
 from tools.prompt_utils import rewrite
 prompt = rewrite(prompt)
 
 ```
 
+or you can directly run:
 
-
-
+```bash
+cd src
+DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxxxxxx python examples/generate_w_prompt_enhance.py
+```
 
 
 ## Deploy Qwen-Image
