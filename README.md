@@ -147,18 +147,6 @@ cd src
 DASHSCOPE_API_KEY=sk-xxxxxxxxxxxxxxxxx python examples/demo.py 
 ```
 
-<!-- ## Build with Qwen-Image
-
-### Fine-tuning
-
-We support fine-tuning Qwen-Image for custom styles and domains:
-
-```python
-from diffusers import DiffusionPipeline
-# Fine-tuning code example coming soon
-```
-
-For detailed fine-tuning instructions, refer to our [training documentation](). -->
 
 ## AI Arena
 
@@ -181,15 +169,6 @@ If you wish to deploy your model on AI Arena and participate in the evaluation, 
     - [Image Generation](https://www.modelscope.cn/aigc/imageGeneration): Generate high fidelity images using the Qwen Image model.
     - [LoRA Training](https://www.modelscope.cn/aigc/modelTraining): Easily train Qwen Image LoRAs for personalized concepts.
 
-<!-- #### ComfyUI
-
-Qwen-Image is compatible with ComfyUI. Follow these steps:
-
-1. Download the model files to your ComfyUI models directory
-2. Use the standard Diffusion workflow nodes
-3. Load Qwen-Image as your checkpoint
-
-For detailed ComfyUI setup instructions, please refer to [our documentation](https://qwen.readthedocs.io/en/latest/run_locally/comfyui.html). -->
 
 
 ## License Agreement
@@ -218,6 +197,7 @@ If you'd like to get in touch with our research team, we’d love to hear from y
 If you have questions about this repository, feedback to share, or want to contribute directly, we welcome your issues and pull requests on GitHub. Your contributions help make Qwen-Image better for everyone. 
 
 If you’re passionate about fundamental research, we’re hiring full-time employees (FTEs) and research interns. Don’t wait — reach out to us at fulai.hr@alibaba-inc.com
+
 
 
 
