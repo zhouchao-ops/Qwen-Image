@@ -26,7 +26,9 @@ We are thrilled to release **Qwen-Image**, a 20B MMDiT image foundation model th
 
 ## Quick Start
 
-Install the latest version of diffusers
+1. Make sure your transformers>=4.51.3 (Supporting Qwen2.5-VL)
+
+2. Install the latest version of diffusers
 ```
 pip install git+https://github.com/huggingface/diffusers
 ```
@@ -211,4 +213,5 @@ If you'd like to get in touch with our research team, we'd love to hear from you
 If you have questions about this repository, feedback to share, or want to contribute directly, we welcome your issues and pull requests on GitHub. Your contributions help make Qwen-Image better for everyone. 
 
 If you're passionate about fundamental research, we're hiring full-time employees (FTEs) and research interns. Don't wait — reach out to us at fulai.hr@alibaba-inc.com
+
 
