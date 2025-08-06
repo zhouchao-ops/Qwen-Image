@@ -223,12 +223,4 @@ If you have questions about this repository, feedback to share, or want to contr
 
 If you're passionate about fundamental research, we're hiring full-time employees (FTEs) and research interns. Don't wait — reach out to us at fulai.hr@alibaba-inc.com
 
-
-
-
-
-
-
-
-
-
+[![Star History Chart](https://api.star-history.com/svg?repos=QwenLM/Qwen-Image&type=Date)](https://star-history.com/#QwenLM/Qwen-Image&Date)
