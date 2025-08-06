@@ -223,3 +223,13 @@ If you have questions about this repository, feedback to share, or want to contr
 
 If you're passionate about fundamental research, we're hiring full-time employees (FTEs) and research interns. Don't wait — reach out to us at fulai.hr@alibaba-inc.com
 
+## Github Star History
+
+<a href="https://star-history.com/#QwenLM/Qwen-Image&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=QwenLM/Qwen-Image&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=QwenLM/Qwen-Image&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=QwenLM/Qwen-Image&type=Date" />
+ </picture>
+</a>
+
