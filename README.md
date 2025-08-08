@@ -18,7 +18,7 @@ We are thrilled to release **Qwen-Image**, a 20B MMDiT image foundation model th
 ![](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/bench.png#center)
 
 ## News
-- 2025.08.05: Qwen-Image now supports eligen.You can control the position and shape of each entity by inputting the text and area conditions (mask image) for each entity.[QwenImage-Diffsynth](https://github.com/AIFSH/QwenImage-Diffsynth) for more info
+- 2025.08.08: Qwen-Image now supports eligen.You can control the position and shape of each entity by inputting the text and area conditions (mask image) for each entity.[QwenImage-Diffsynth](https://github.com/AIFSH/QwenImage-Diffsynth) for more info
 - <img width="1809" height="983" alt="图片1" src="https://github.com/user-attachments/assets/2be3dc37-bebc-420e-a7f8-cf04debb2290" />
 - 2025.08.05: Qwen-Image is now natively supported in ComfyUI, see [Qwen-Image in ComfyUI: New Era of Text Generation in Images!](https://blog.comfy.org/p/qwen-image-in-comfyui-new-era-of)
 - 2025.08.05: Qwen-Image is now on Qwen Chat. Click [Qwen Chat](https://chat.qwen.ai/) and choose "Image Generation".
@@ -228,4 +228,5 @@ If you're passionate about fundamental research, we're hiring full-time employee
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=QwenLM/Qwen-Image&type=Date)](https://www.star-history.com/#QwenLM/Qwen-Image&Date)
+
 
