@@ -30,7 +30,7 @@ We are thrilled to release **Qwen-Image**, a 20B MMDiT image foundation model th
 - 2025.08.04: We released Qwen-Image! Check our [Blog](https://qwenlm.github.io/blog/qwen-image) for more details!
 
 > [!NOTE]
-> The editing version of Qwen-Image will be released soon. Stay tuned!
+> The Qwen-Image-Edit is just around the corner! If you enjoy our work, please show your support by giving our repository a star. Your encouragement means a lot to us!
 > 
 > Due to heavy traffic, if you'd like to experience our demo online, we also recommend visiting DashScope, WaveSpeed, and LibLib. Please find the links below in the community support.
 
