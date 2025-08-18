@@ -181,7 +181,6 @@ Here’s another interesting example—removing fine strands of hair:
 Below shows how to modify the color of text in an image—changing the color of the letter "n" to blue:
 ![Modifying text color](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片8.JPG#center)
 Appearance editing is also crucial in modifying human poses, backgrounds, and clothing, as demonstrated in the following three images:
-![Modifying human poses](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片9.JPG#center)
 ![Modifying backgrounds](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片11.JPG#center)
 ![Modifying clothing](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片5.JPG#center)
 Additionally, appearance editing can be used for photo colorization, such as transforming old black-and-white photos into color:
