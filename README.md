@@ -2,9 +2,10 @@
     <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/qwen_image_logo.png" width="400"/>
 <p>
 <p align="center">&nbsp&nbsp💜 <a href="https://chat.qwen.ai/">Qwen Chat</a>&nbsp&nbsp |
-           &nbsp&nbsp🤗 <a href="https://huggingface.co/Qwen/Qwen-Image">Hugging Face</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/models/Qwen/Qwen-Image">ModelScope</a>&nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2508.02324">Tech Report</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://qwenlm.github.io/blog/qwen-image/">Blog</a> &nbsp&nbsp 
+           &nbsp&nbsp🤗 <a href="https://huggingface.co/Qwen/Qwen-Image">HuggingFace(T2I)</a>&nbsp&nbsp |
+           &nbsp&nbsp🤗 <a href="https://huggingface.co/Qwen/Qwen-Image-Edit">HuggingFace(Edit)</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/models/Qwen/Qwen-Image">ModelScope-T2I</a>&nbsp&nbsp | &nbsp&nbsp🤖 <a href="https://modelscope.cn/models/Qwen/Qwen-Image-Edit">ModelScope-Edit</a>&nbsp&nbsp| &nbsp&nbsp 📑 <a href="https://arxiv.org/abs/2508.02324">Tech Report</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://qwenlm.github.io/blog/qwen-image/">Blog</a> &nbsp&nbsp 
 <br>
-🖥️ <a href="https://huggingface.co/spaces/Qwen/Qwen-Image">Demo</a>&nbsp&nbsp | &nbsp&nbsp💬 <a href="https://github.com/QwenLM/Qwen-Image/blob/main/assets/wechat.png">WeChat (微信)</a>&nbsp&nbsp | &nbsp&nbsp🫨 <a href="https://discord.gg/CV4E9rpNSD">Discord</a>&nbsp&nbsp
+🖥️ <a href="https://huggingface.co/spaces/Qwen/Qwen-Image">T2I Demo</a>&nbsp&nbsp | 🖥️ <a href="https://huggingface.co/spaces/Qwen/Qwen-Image-Edit">Edit Demo</a>&nbsp&nbsp | &nbsp&nbsp💬 <a href="https://github.com/QwenLM/Qwen-Image/blob/main/assets/wechat.png">WeChat (微信)</a>&nbsp&nbsp | &nbsp&nbsp🫨 <a href="https://discord.gg/CV4E9rpNSD">Discord</a>&nbsp&nbsp
 </p>
 
 <p align="center">
@@ -18,6 +19,7 @@ We are thrilled to release **Qwen-Image**, a 20B MMDiT image foundation model th
 ![](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/bench.png#center)
 
 ## News
+- 2025.08.18: We’re excited to announce the open-sourcing of Qwen-Image-Edit! 🎉 Try it out in your local environment with the quick start guide below, or head over to [Qwen Chat](https://chat.qwen.ai/) or [Huggingface Demo](https://huggingface.co/spaces/Qwen/Qwen-Image-Edit) to experience the online demo right away!
 - 2025.08.09: Qwen-Image now supports a variety of LoRA models, such as MajicBeauty LoRA, enabling the generation of highly realistic beauty images. Check out the available weights on [ModelScope](https://modelscope.cn/models/merjic/majicbeauty-qwen1/summary).
 <p align="center">
     <img src="assets/magicbeauty.png"/>
@@ -42,6 +44,8 @@ We are thrilled to release **Qwen-Image**, a 20B MMDiT image foundation model th
 ```
 pip install git+https://github.com/huggingface/diffusers
 ```
+
+### Text to Image
 
 The following contains a code snippet illustrating how to use the model to generate images based on text prompts:
 
@@ -99,8 +103,46 @@ image = pipe(
 image.save("example.png")
 ```
 
+### Image Editing
+
+```python
+import os
+from PIL import Image
+import torch
+
+from diffusers import QwenImageEditPipeline
+
+pipeline = QwenImageEditPipeline.from_pretrained("Qwen/Qwen-Image-Edit")
+print("pipeline loaded")
+pipeline.to(torch.bfloat16)
+pipeline.to("cuda")
+pipeline.set_progress_bar_config(disable=None)
+
+image = Image.open("./input.png").convert("RGB")
+prompt = "Change the rabbit's color to purple, with a flash light background."
+
+
+inputs = {
+    "image": image,
+    "prompt": prompt,
+    "generator": torch.manual_seed(0),
+    "true_cfg_scale": 4.0,
+    "negative_prompt": " ",
+    "num_inference_steps": 50,
+}
+
+with torch.inference_mode():
+    output = pipeline(**inputs)
+    output_image = output.images[0]
+    output_image.save("output_image_edit.png")
+    print("image saved at", os.path.abspath("output_image_edit.png"))
+```
+
+
 ## Show Cases
 
+
+### General Cases
 One of its standout capabilities is high-fidelity text rendering across diverse images. Whether it's alphabetic languages like English or logographic scripts like Chinese, Qwen-Image preserves typographic details, layout coherence, and contextual harmony with stunning accuracy. Text isn't just overlaid, it's seamlessly integrated into the visual fabric.
 
 ![](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/s1.jpg#center)
@@ -118,6 +160,55 @@ But Qwen-Image doesn't just create or edit, it understands. It supports a suite 
 ![](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/s4.jpg#center)
 
 Together, these features make Qwen-Image not just a tool for generating pretty pictures, but a comprehensive foundation model for intelligent visual creation and manipulation—where language, layout, and imagery converge.
+
+### Tutorial for Image Editing
+
+One of Qwen-Image-Edit’s standout capabilities is dual semantic and appearance editing. Semantic editing refers to modifying an image while preserving its original visual semantics. For instance, let’s start with Qwen’s mascot—Capibara:
+![Capibara](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片3.JPG#center)
+Although every pixel in the edited image differs from the input (the leftmost image), the character identity of Capibara remains consistent. This semantic editing capability enables effortless creation and modification of original IPs. For example, using a series of prompts, we expanded the set to create a full MBTI meme series:
+![MBTI meme series](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片4.JPG#center)
+Semantic editing is also highly valuable in portrait generation. Given a person’s photo, Qwen-Image-Edit can alter their pose, clothing, or even facial proportions while preserving their facial structure:
+![Portrait generation](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片10.JPG#center)
+Another key application of semantic editing is viewpoint transformation. As shown below, Qwen-Image-Edit can not only rotate objects by 90 degrees but even by 180 degrees, revealing the back of an object:
+![Viewpoint transformation 90 degrees](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片12.JPG#center)
+![Viewpoint transformation 180 degrees](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片13.JPG#center)
+Another example of semantic editing is style transfer. Given a portrait, Qwen-Image-Edit can easily transform it into various styles such as Studio Ghibli, which is particularly useful for creating avatars or character IDs:
+![Style transfer](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片1.JPG#center)
+In addition to semantic editing, appearance editing addresses a different class of editing needs. Appearance editing requires certain regions of the image to remain completely unchanged. A common example is addition, deletion, or modification.
+Below, we demonstrate adding a signboard to an image. Notably, Qwen-Image-Edit not only adds the signboard but also generates a corresponding reflection:
+![Adding a signboard](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片6.JPG#center)
+Here’s another interesting example—removing fine strands of hair:
+![Removing fine strands of hair](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片7.JPG#center)
+Below shows how to modify the color of text in an image—changing the color of the letter "n" to blue:
+![Modifying text color](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片8.JPG#center)
+Appearance editing is also crucial in modifying human poses, backgrounds, and clothing, as demonstrated in the following three images:
+![Modifying human poses](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片9.JPG#center)
+![Modifying backgrounds](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片11.JPG#center)
+![Modifying clothing](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片5.JPG#center)
+Additionally, appearance editing can be used for photo colorization, such as transforming old black-and-white photos into color:
+![Photo colorization](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片2.JPG#center)
+The second hallmark of Qwen-Image-Edit is its accurate text editing, made possible by Qwen-Image’s powerful text rendering capabilities.
+For example, the following two images demonstrate Qwen-Image-Edit’s ability in editing English text:
+![Editing English text 1](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片15.JPG#center)
+![Editing English text 2](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片16.JPG#center)
+Qwen-Image-Edit can also edit Chinese posters—modifying both large and small text elements:
+![Editing Chinese posters](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片17.JPG#center)
+Finally, let’s walk through a concrete example showing how sequential editing can correct errors in a calligraphy artwork originally generated by Qwen-Image:
+![Calligraphy artwork](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片18.JPG#center)
+This artwork contains several incorrect characters. We can progressively correct them using Qwen-Image-Edit. For instance, we can add bounding boxes directly on the original image and instruct Qwen-Image-Edit to fix the highlighted parts—here, correcting “稽” within the red box and “亭” within the blue box:
+![Correcting characters](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片19.JPG#center)
+Unfortunately, the character “稽” is uncommon, and the model initially fails to correct it—the lower-right component should be “旨”, not “日”. We can further highlight the incorrect “日” with a red box and prompt Qwen-Image-Edit to fine-tune that region into “旨”:
+![Fine-tuning character](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片20.JPG#center)
+Amazing, right? Following this iterative approach, we can progressively correct all errors until reaching the final version:
+![Final version 1](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片21.JPG#center)
+![Final version 2](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片22.JPG#center)
+![Final version 3](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片23.JPG#center)
+![Final version 4](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片24.JPG#center)
+![Final version 5](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片25.JPG#center)
+Ultimately, we obtain a fully correct calligraphy version of Lantingji Xu (Preface to the Poems Composed at the Orchid Pavilion)!
+In summary, we hope Qwen-Image-Edit will further advance the field of image generation, significantly lower the technical barriers to visual content creation, and inspire even more innovative applications.
+
+
 
 ### Advanced Usage
 
