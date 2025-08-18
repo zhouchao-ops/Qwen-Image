@@ -162,9 +162,9 @@ Together, these features make Qwen-Image not just a tool for generating pretty p
 
 ### Tutorial for Image Editing
 
-One of Qwen-Image-Edit’s standout capabilities is dual semantic and appearance editing. Semantic editing refers to modifying an image while preserving its original visual semantics. For instance, let’s start with Qwen’s mascot—Capibara:
-![Capibara](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片3.JPG#center)
-Although every pixel in the edited image differs from the input (the leftmost image), the character identity of Capibara remains consistent. This semantic editing capability enables effortless creation and modification of original IPs. For example, using a series of prompts, we expanded the set to create a full MBTI meme series:
+One of Qwen-Image-Edit’s standout capabilities is dual semantic and appearance editing. Semantic editing refers to modifying an image while preserving its original visual semantics. For instance, let’s start with Qwen’s mascot—capybara:
+![capybara](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片3.JPG#center)
+Although every pixel in the edited image differs from the input (the leftmost image), the character identity of capybara remains consistent. This semantic editing capability enables effortless creation and modification of original IPs. For example, using a series of prompts, we expanded the set to create a full MBTI meme series:
 ![MBTI meme series](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片4.JPG#center)
 Semantic editing is also highly valuable in portrait generation. Given a person’s photo, Qwen-Image-Edit can alter their pose, clothing, or even facial proportions while preserving their facial structure:
 ![Portrait generation](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/edit_en/幻灯片10.JPG#center)
