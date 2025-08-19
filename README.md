@@ -137,6 +137,9 @@ with torch.inference_mode():
     print("image saved at", os.path.abspath("output_image_edit.png"))
 ```
 
+> [!NOTE]
+
+> We highly recommend using prompt rewriting to improve the stability of editing cases. For reference, please see our official [demo script](src/examples/edit_demo.py), which includes example system prompts. Qwen-Image-Edit is actively evolving with ongoing development. Stay tuned for future enhancements!
 
 ## Show Cases
 
